@@ -1,0 +1,35 @@
+#main {
+    
+}
+
+
+#title {
+    display: flex;
+    justify-content: center;
+
+}
+    #img-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+#img-caption {
+    font-style: italic;
+    
+}
+
+#articlebody {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+#subtitle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+}
