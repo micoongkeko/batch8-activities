@@ -1,0 +1,11 @@
+h2 {
+    position: static;
+    text-align: center;
+}
+
+.divBody {
+    position: relative;
+    text-align: justify;
+    color:darkslategrey;
+    margin: 100px;
+}
