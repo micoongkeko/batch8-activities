@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>
+
+    </title>
+</head>
+
+<body>
+
+<h1 id="title">
+    Avion School Survey Form    
+</h1>   
+
+<p id="description">Welcome to your journey in becoming a software engineer.</p>
+
+<form id="survey-form">
+        <label id="name-label">Name:</label> <br>
+        <input type="text" name="name" id="name" placeholder="Type name here" required> <br>
+
+        <label id="email-label">E-mail:</label> <br>
+        <input type="text" name="email" id="email" placeholder="Type E-mail here" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> <br>
+
+        <label id="number-label">Age:</label> <br>
+        <input type="number" name="age" id="age" placeholder="Enter Age Here" min = 16 max = 65> <br>
+
+        <label>Choose a Slot:</label> <br>
+        <select name="slot" id="slot">
+                <option value="3mos">Full-time 9am-6pm M-F</option>
+                <option value="6mos">Part-time 7pm-9pm M-W,F, 9am-1pm Sat</option>
+
+        </select> <br>
+
+        <label>Payment Scheme:</label> <br>
+        <input type="radio" name="upfront" id="upfront" value="Upfront">
+        <label for="upfront">Upfront</label> <br>
+
+        <input type="radio" name="ISA" id="ISA" value="ISA">
+        <label for="ISA">Income Share Agreement 17%</label> <br>
+
+
+        <label>What are you interested in learning?</label> <br>
+        <input type="checkbox" name="html" id="html" value="html">
+        <label for="html">HTML</label> <br>
+
+        <input type="checkbox" name="css" id="css" value="css">
+        <label for="css">CSS</label> <br>
+
+        <input type="checkbox" name="js" id="js" value="js">
+        <label for="js">JavaScript</label> <br>
+
+        <label for="notes">Is there anything else we should know about you?</label> <br>
+        <textarea name="notes" id="notes" rows="10" cols="50"></textarea> <br>
+
+<br>
+<input type="submit" value="Submit">
+
+</form>
+
+
+
+</body>
+
+
+
+</html>
