@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>Chessboard</title>
+
+    <style>
+
+    body {
+        background-image: url("https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8d2hpdGUlMjBwYXR0ZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+        background-position: center;
+        background-size: cover;
+        background-repeat: inherit;
+    }
+
+    .header {
+        padding: 0px;
+        margin-bottom: 3vw;
+        text-align: center;
+        background: #9CA48E;
+        color: white;
+    }
+
+    #micos {
+        text-align: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 6vw;
+    }
+
+    #desc {
+        padding-top: 4vw;        
+        text-align: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.5vw;
+    }
+
+    img {
+        max-width: 60%;
+        max-height: 60%;
+        display: flex;
+        flex: 1;
+        object-fit: cover;
+    }
+
+    .chessboard {
+        border: 2vw solid #9CA48E;
+        box-sizing: content-box;
+        display: flex;
+        flex-direction: column;
+        height: 30vw;
+        margin: auto;
+        width: 30vw;
+}
+
+    .row {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+
+    .white-box {
+        display: flex;
+        justify-content: center;
+        background-image: url("https://images.unsplash.com/photo-1501769214405-5e5ee5125a02?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8d2hpdGUlMjBwYXR0ZXJufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+        flex: 1;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+    }
+    .black-box {
+        display: flex;
+        justify-content: center;
+        background-image: url("https://images.unsplash.com/photo-1533135091724-62cc5402aa20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");         
+        flex: 1;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+    }
+
+
+    #buttonstart {
+        margin: auto;
+        display: block;
+        border-radius: 1vw;
+        padding: 2vw 6vw;
+        color: black;
+        border: black;
+        background-color: #91a869;
+        cursor: pointer;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 2vw;
+    }
+
+    #buttonstart:hover {
+        background-color: #789b3d;
+        color: white;
+        border-radius: 1vw;
+    }
+
+    #buttonselect {
+        margin-top: 1vw;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        border-radius: 1vw;
+        padding: 2vw 5vw;
+        color: black;
+        border: black;
+        background-color: #767774;
+        cursor: pointer;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 2vw;
+    }
+
+    #buttonselect:hover {
+        background-color: #adb1a8;
+        color: white;
+        border-radius: 1vw;
+    }
+
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2 id="micos">mico's chessboard</h2>
+</div>
+
+<div class="chessboard">
+
+<div class="row">
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Chess_ndt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Chess_kdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Chess_qdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Chess_bdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Chess_ndt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Chess_rdt60.png"></div>
+</div>
+
+<div class="row">
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chess_pdt60.png"></div>
+</div>
+
+<div class="row">
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+</div>
+
+<div class="row">
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+</div>
+
+<div class="row">
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+</div>
+
+<div class="row">
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+    <div class="white-box"></div>
+    <div class="black-box"></div>
+</div>
+
+<div class="row">
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Chess_plt60.png"></div>
+</div>
+
+<div class="row">
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Chess_klt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Chess_qlt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Chess_nlt60.png"></div>
+    <div class="white-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Chess_blt60.png"></div>
+    <div class="black-box"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Chess_rlt60.png"></div>
+</div>
+
+
+
+</div>
+
+<p id="desc">Chess is a game of smarts. Outplay your opponent to reach checkmate and win the game!</p>
+
+<div class="buttons">
+<div>
+<button id="buttonstart" type="button" onClick="location.href='https://www.chess.com'">start game</button>
+</div>
+
+<div>
+<button id="buttonselect" type="button" onClick="location.href='chessboard2.html'">board select</button>
+</div>
+</div>
+
+</body>
+
+</html>
