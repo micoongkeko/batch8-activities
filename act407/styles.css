@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+#logo {
+  max-width: 3rem;
+  padding: 2rem;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+#header {
+  position: fixed;
+  font-family: "Dela Gothic One", cursive;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(207, 207, 207);
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 0.6rem;
+  height: 4rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  padding: 1vw;
+}
+
+a:link {
+  color: rgb(0, 0, 0);
+}
+
+a:visited {
+  color: gray;
+}
+
+a:hover {
+  color: lightgreen;
+}
+
+#futfor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Dela Gothic One", cursive;
+  min-height: 100vh;
+  background-image: url("vertbg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.label {
+  font-family: "Dela Gothic One", cursive;
+  font-size: 1.4rem;
+}
+
+#ffpic1 {
+  max-width: 23rem;
+}
+
+.desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  margin: 4vh;
+  margin-bottom: 1vh;
+  line-height: 2rem;
+}
+
+#purchasebutton {
+  font-family: "Dela Gothic One", cursive;
+  background-color: rgb(224, 224, 224, 0.5);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+#purchasebutton:hover {
+  background-color: rgb(24, 24, 24);
+  cursor: pointer;
+  transform: scale(1.2);
+  color: azure;
+}
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  color: whitesmoke;
+  justify-content: center;
+  /* background-color: rgba(63, 70, 70, 0.6);
+  */
+  background-image: url("VIV04602.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: rgb(0, 0, 0) 0rem 0 1rem;
+}
+/*
+.resp-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+*/
+.resp-iframe {
+  top: 0;
+  left: 0;
+  padding-bottom: 2vh;
+  width: 24rem;
+  height: 16rem;
+  border: 0;
+}
+/*
+iframe {
+  padding: 4vh;
+  min-height: 40vh;
+  min-width: 70vw;
+}
+*/
+
+#foliobutton {
+  font-family: "Dela Gothic One", cursive;
+  background-color: rgb(224, 224, 224, 0.5);
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+#foliobutton:hover {
+  background-color: rgb(24, 24, 24);
+  cursor: pointer;
+  transform: scale(1.2);
+  color: azure;
+}
+
+
+
+#collab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  line-height: 3rem;
+  background-image: url("VIV04656.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: aliceblue;
+  text-shadow: rgb(0, 0, 0) 0rem 0 1rem;
+}
+
+#name {
+  width: 65vw;
+  height: 1vh;
+  padding: 3vw;
+  border: none;
+  background-color: rgb(240, 255, 255, 0.6);
+  font-family: "Montserrat", sans-serif;
+}
+
+#email {
+  width: 65vw;
+  height: 1vh;
+  padding: 3vw;
+  border: none;
+  background-color: rgb(240, 255, 255, 0.6);
+  font-family: "Montserrat", sans-serif;
+}
+
+#nature {
+  width: 65vw;
+  height: 1vh;
+  padding: 3vw;
+  border: none;
+  background-color: rgb(240, 255, 255, 0.6);
+  font-family: "Montserrat", sans-serif;
+}
+
+#inqbutton {
+  font-family: "Dela Gothic One", cursive;
+  background-color: rgb(224, 224, 224, 0.5);
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  cursor: pointer;
+  justify-content: right;
+}
+
+#inqbutton:hover {
+  background-color: rgba(117, 117, 117, 0.6);
+  cursor: pointer;
+  transform: scale(1.2);
+  color: azure;
+}
+
+
+@media all and (orientation: landscape) {
+  #futfor {
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: 5vw 10vw 10vw;
+    padding: 10vw;
+  }
+  #ffpic1 {
+    padding-left: 5vw;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+  }
+  .label {
+    grid-area: 1/1/2/2;
+    text-align: left;
+    padding-left: 4vw;
+  }
+  .desc {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    text-align: left;
+  }
+  button {
+    margin-left: 11vw;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    height: 70px;
+    width: 200px;
+  }
+}
+
+
+*/
