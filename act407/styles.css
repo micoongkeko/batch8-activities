@@ -66,6 +66,7 @@ a:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 4vh;
 }
 
 .label {
@@ -74,7 +75,7 @@ a:hover {
 }
 
 #ffpic1 {
-  max-width: 23rem;
+  max-width: 21rem;
 }
 
 .desc {
@@ -129,7 +130,7 @@ a:hover {
   left: 0;
   padding-bottom: 2vh;
   width: 24rem;
-  height: 16rem;
+  height: 13rem;
   border: 0;
 }
 /*
@@ -156,12 +157,11 @@ iframe {
   color: azure;
 }
 
-
-
 #collab {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   line-height: 3rem;
   background-image: url("VIV04656.jpg");
@@ -217,41 +217,200 @@ iframe {
   color: azure;
 }
 
-
 @media all and (orientation: landscape) {
+  #header {
+    position: fixed;
+    font-family: "Dela Gothic One", cursive;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(207, 207, 207);
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.6rem;
+    height: 4rem;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    padding: 1vw;
+  }
+
+  a:link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: gray;
+  }
+
+  a:hover {
+    color: lightgreen;
+  }
+
+  #header .icon {
+    display: none;
+  }
+
   #futfor {
     display: grid;
-    grid-template-columns: 60vw 40vw;
-    grid-template-rows: 5vw 10vw 10vw;
-    padding: 10vw;
+    grid-template-columns: fit-content(60vw) fit-content(40vw);
+    grid-template-rows: fit-content(35vh) fit-content(20vh) fit-content(15vh);
+    background-image: url("horizbg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-content: center;
   }
+
+  h4 {
+    font-size: 4rem;
+    padding-left: 3vw;
+  }
+
+  h5 {
+    padding-left: 3vw;
+  }
+
   #ffpic1 {
+    max-width: 25rem;
     padding-left: 5vw;
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: span 2;
+    align-content: center;
   }
   .label {
     grid-area: 1/1/2/2;
     text-align: left;
-    padding-left: 4vw;
+    padding-left: 0vw;
   }
   .desc {
+    font-size: 1.1rem;
+    line-height: 3rem;
     grid-column-start: 1;
     grid-row-start: 2;
     grid-row-end: span 2;
     text-align: left;
   }
+
   button {
-    margin-left: 11vw;
+    margin-left: 3vw;
     grid-row-start: 3;
     grid-row-end: span 1;
     grid-column-start: 2;
     grid-column-end: span 1;
     height: 70px;
     width: 200px;
+    align-content: center;
+  }
+
+  #about {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    text-align: center;
+    color: whitesmoke;
+    background-image: url("VIV04602.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: rgb(0, 0, 0) 0rem 0 1rem;
+  }
+
+  .resp-iframe {
+    top: 0;
+    left: 0;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    width: 40rem;
+    height: 22.5rem;
+    border: 0;
+  }
+
+  #foliobutton {
+    font-family: "Dela Gothic One", cursive;
+    background-color: rgb(224, 224, 224, 0.5);
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  #foliobutton:hover {
+    background-color: rgb(24, 24, 24);
+    cursor: pointer;
+    transform: scale(1.2);
+    color: azure;
+  }
+
+  #collab {
+    padding-bottom: 2vh;
+  }
+
+  #inqbutton {
+    font-family: "Dela Gothic One", cursive;
+    background-color: rgb(224, 224, 224, 0.5);
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    justify-content: center;
+  }
+
+  #inqbutton:hover {
+    background-color: rgb(24, 24, 24);
+    cursor: pointer;
+    transform: scale(1.2);
+    color: azure;
   }
 }
 
+@media all and (orientation: portrait) {
+  #header {
+    overflow: hidden;
+  }
 
-*/
+  #header #nav-bar {
+    display: none;
+  }
+
+  #nav-bar a {
+    color: rgb(156, 156, 156);
+    background-color: rgb(207, 207, 207);
+    padding: 1.7rem;
+    margin-top: 0px;
+    text-decoration: none;
+    font-size: 0.1rem;
+    display: block;
+  }
+
+  #header a.icon {
+    background: rgb(187, 187, 187);
+    padding: 1.55rem;
+    display: block;
+    position: absolute;
+    right: 1.1rem;
+    top: 0;
+  }
+
+  .active {
+    color: rgb(177, 177, 177);
+  }
+}

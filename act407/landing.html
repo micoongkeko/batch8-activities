@@ -1,85 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat&display=swap"" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat&display=swap""
+    rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="mologo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Future Forward</title>
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <a href="https://www.micoongkeko.com"><img id="logo" src="mologo.png"></a>
-        <nav id="nav-bar">
-            <ul>
-                <li class="nav-link"><a href="#futfor">FUTURE FORWARD</a></li>
-                <li class="nav-link"><a href="#about">ABOUT ME</a></li>
-                <li class="nav-link"><a href="#collab">COLLABORATE</a></li>
-            </ul>
-        </nav>
+      <a href="https://www.micoongkeko.com"
+        ><img id="logo" src="mologo.png"
+      /></a>
+      <nav id="nav-bar">
+        <ul>
+          <li class="nav-link"><a href="#futfor">FUTURE FORWARD</a></li>
+          <li class="nav-link"><a href="#about">ABOUT ME</a></li>
+          <li class="nav-link"><a href="#collab">COLLABORATE</a></li>
+        </ul>
+      </nav>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </header>
 
-<div id="futfor">
-    <img id="ffpic1" src="bookcover.png">
-    <div class="label">
-        <h4 class="divhead">
-        FUTURE FORWARD
-        </h4>
-        <h5 class="price">
-        PHP 1,000.00 
-        </h5>
-    </div>
-    <p class="desc">
-    Consisting of some of my favorite photos from travels to Japan and Singapore, Future Forward is my first photo book ever.
-    <br>
-    7.5 x 5.5 in.
-    <br>
-    50 colored pages.
-    <br>
-    Limited edition of 30.
-    <br>
-    This book <b>will not be reissued.</b> Limit purchase to 1 copy per person.
-    </p>
-  
-    <a href="https://shop.micoongkeko.com"><button id="purchasebutton">PURCHASE</button></a>
-    
-</div>
+    <div id="futfor">
+      <img id="ffpic1" src="bookcover.png" />
+      <div class="label">
+        <h4 class="divhead">FUTURE FORWARD</h4>
+        <h5 class="price">PHP 1,000.00</h5>
+      </div>
+      <p class="desc">
+        Consisting of some of my favorite photos from travels to Japan and
+        Singapore, Future Forward is my first photo book ever.
+        <br />
+        7.5 x 5.5 in.
+        <br />
+        50 colored pages.
+        <br />
+        Limited edition of 30.
+        <br />
+        This book <b>will not be reissued.</b> Limit purchase to 1 copy per
+        person.
+      </p>
 
-<div id="about">
-    <div class="resp-container">
-    <iframe class="resp-iframe" src="https://www.youtube.com/embed/PWb_ofzHoww?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <a href="https://shop.micoongkeko.com"
+        ><button id="purchasebutton">PURCHASE</button></a
+      >
     </div>
-    <div class="label">
-        ABOUT THE ARTIST
-    </div>
-    <div class="desc">
-        Mico Ongkeko is a graduate from the Ateneo de Manila University who has been working freelance photography and videography for the past three years.<br>
+
+    <div id="about">
+      <div class="resp-container">
+        <iframe
+          class="resp-iframe"
+          src="https://www.youtube.com/embed/PWb_ofzHoww?start=1"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="label">ABOUT THE ARTIST</div>
+      <div class="desc">
+        Mico Ongkeko is a graduate from the Ateneo de Manila University who has
+        been working as a freelance photographer and videographer for the past
+        three years.<br />
         Check out some of his other works below.
+      </div>
+      <a href="https://www.micoongkeko.com">
+        <button id="foliobutton">VIEW PORTFOLIO</button>
+      </a>
     </div>
-    <a href="https://www.micoongkeko.com">    
-    <button id="foliobutton">VIEW PORTFOLIO</button>
-    </a>
-</div>
 
-<div id="collab">
-    <div class="label" style="padding-left: 20%; text-align: right; padding-right: 2vw; padding-top: 20vh;">
-        If you like what you see and are interested in working together, feel free to reach out via the form below!
+    <div id="collab">
+      <div
+        class="label"
+        style="
+          padding-left: 20%;
+          text-align: right;
+          padding-right: 5vw;
+          padding-top: 0vh;
+        "
+      >
+        If you like what you see and are interested in working together, feel
+        free to reach out via the form below!
+      </div>
+      <br />
+      <form id="form" action="results.html" method="GET" enctype="multipart/form-data">
+        <label class="label">Name:</label><br />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter Full Name"
+          required
+        /><br />
+        <label class="label">E-mail Address:</label><br />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Enter E-Mail Address"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          required
+        /><br />
+        <label class="label">Nature of Project:</label><br />
+        <input
+          type="text"
+          name="nature"
+          id="nature"
+          placeholder="Describe the nature of the project you want to collaborate on"
+          required
+        /><br />
+        <br /><button id="inqbutton">SUBMIT INQUIRY</button>
+      </form>
     </div>
-    <br>
-    <form id="form">
-        <label class="label">Name:</label><br>
-        <input type="text" name="name" id="name" placeholder="Enter Full Name" required><br>
-        <label class="label">E-mail Address:</label><br>
-        <input type="text" name="email" id="email" placeholder="Enter E-Mail Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
-        <label class="label">Nature of Project:</label><br>
-        <input type="text" name="nature" id="nature" placeholder="Describe the nature of the project you want to collaborate on" required><br>
-        <br><button id="inqbutton">SUBMIT INQUIRY</button>
-    </form>
 
-    
-</div>
-
-</body>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("nav-bar");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }
+      }
+    </script>
+  </body>
 </html>
