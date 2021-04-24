@@ -1,0 +1,269 @@
+/********** HTML BASE ***********/
+
+html {
+  min-height: 100vh;
+  background-image: url(VIV04667.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+/********** HEADER ***********/
+
+header {
+  position: fixed;
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  max-width: 2rem;
+  padding: 1rem;
+}
+
+/********** BODY ***********/
+
+#clock {
+  display: inherit;
+  color: white;
+  font-size: 4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+
+.home {
+  max-height: 100vh;
+  display: flex;
+  padding-top: 7rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 2rem;
+  color: rgb(255, 255, 255);
+  /* text-shadow: 0.3rem 0.3rem 0.9rem black;
+  background-color: rgb(245, 245, 245, 0.1); */
+  overflow: auto;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem solid rgb(255, 255, 255);
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+h4 {
+  padding-top: 2rem;
+  line-height: 1.4rem;
+  font-style: italic;
+  text-shadow: none;
+}
+
+#addToDo {
+  margin-left: 1rem;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  background-color: rgba(115, 131, 125, 0.7);
+}
+
+.todolist {
+  width: 15rem;
+  min-height: 13rem;
+  border-radius: 1rem;
+  background-color: rgba(50, 58, 55, 0.7);
+  text-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0rem;
+  width: 100%;
+  height: 3rem;
+  font-size: 0.6rem;
+  color: aliceblue;
+  background-color: rgb(240, 248, 255, 0.1);
+  text-shadow: 0.5rem 0.1rem 0.9rem black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+#quoterefreshbtn {
+  border-radius: 15rem;
+  background-color: rgba(190, 190, 190, 0.7);
+  color: white;
+  margin-left: 0.5rem;
+  padding: 0.6rem;
+}
+
+#quoteaddbtn {
+  border-radius: 15rem;
+  background-color: rgba(190, 190, 190, 0.7);
+  color: white;
+  margin-left: 0.5rem;
+  padding: 0.6rem;
+}
+
+/********** SPECIFICS ***********/
+
+#name {
+  width: 5rem;
+}
+
+#mainfocus {
+  min-width: 15rem;
+  font-size: 1rem;
+}
+
+#newToDo {
+  min-width: 15rem;
+  line-height: 1rem;
+  font-size: 0.9rem;
+}
+
+#newquote {
+  color: black;
+  font-size: 1rem;
+  width: 8rem;
+}
+
+#confirmnewq {
+  border-radius: 15rem;
+  background-color: rgba(190, 190, 190, 0.7);
+  color: white;
+  margin-left: 0.5rem;
+  padding: 0.6rem;
+}
+
+::placeholder {
+  color: gray;
+  opacity: 1;
+}
+
+/********** ADD QUOTE POPUP ***********/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/********** MEDIA QUERY ***********/
+
+@media only screen and (min-width: 768px) {
+  header {
+    position: fixed;
+    width: 100vw;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #logo {
+    max-width: 4rem;
+    padding: 3rem;
+  }
+
+  #clock {
+    color: white;
+    font-size: 10rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    padding-bottom: 2rem;
+  }
+
+  .home {
+    max-height: 100vh;
+    display: flex;
+    padding-top: 17rem;
+    line-height: 4rem;
+    text-shadow: 0.7rem 0.7rem 0.9rem black;
+  }
+
+  h4 {
+    text-shadow: 0.9rem 0.7rem 2rem black;
+  }
+
+  .todolist {
+    position: absolute;
+    margin-left: 60vw;
+    margin-top: 30vh;
+    width: 15rem;
+    height: 13rem;
+    border-radius: 1rem;
+    background-color: rgba(50, 58, 55, 0.7);
+    text-shadow: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    width: 60%;
+  }
+
+  #newquote {
+    color: black;
+    font-size: 1rem;
+    width: 15rem;
+  }
+}

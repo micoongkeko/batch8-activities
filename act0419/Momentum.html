@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"" rel="stylesheet">
+    <title>Mico's Momentum Page</title>
+</head>
+<body>
+    <header>
+        <img src="momentumlogo.png.png" id="logo">
+    </header>
+
+<div class="home">
+    <h1 id="clock"></h1>
+    <br>
+    <h2>
+        Hello, <input type="text" id="name" autocomplete="off">!
+    </h2>
+    <br>
+    <h3>
+        Today's focus will be on
+        <br>
+        <input type="text" id="mainfocus" autocomplete="off">.
+    </h3>
+    <div class="container">
+    <h4>
+        I also need to
+        <br>
+        <input type="text" id="newToDo" autocomplete="off"><button id="addToDo">+</button>
+    </h4>
+    <br>
+  
+</div>
+<div class="todolist">
+    Things to do:
+    
+    <div id="todolist"></div>
+</div>
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+     
+      <input type="text" id="newquote" placeholder="Type new quote here." autocomplete="off"><button id="confirmnewq" onclick="addtoquotes()">Add Quote</button>
+      <span class="close">&times;</span>
+    </div>
+</div>
+<footer>
+    <div id="footercontent">
+    "The Best Way To Get Started Is To Quit Talking And Begin Doing. – Walt Disney"
+    </div><button id="quoterefreshbtn">&#8634;</button> <button id="quoteaddbtn" onclick="addquotefn()">+</button>
+</footer>
+
+
+</script>
+
+<script src="scripts.js"></script>
+</body>
+</html>
