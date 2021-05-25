@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <img src="images/menu_logo.png" id="menu_logo" class="dashBtn">
+    <img src="images/bank_logo.png" id="bank_logo" class="dashBtn">
+</header>
+
+<section class="dashboard_container">
+    <h1 id="newAccTitle">GET STARTED!</h1>
+    <div id="newAccLabel">CREATE A NEW ACCOUNT BELOW</div>
+
+</section>
+
+<section>
+    <div class="newAccContainer">
+    <form id="newAccForm">
+        <label id="nameInputLabel">FULL NAME</label><br>
+        <input type="text" class="newAccInput" id="nameInput" name="fullName" placeholder="Enter Full Name" required>
+    <br>
+        <label id="emailLabel">E-MAIL ADDRESS</label><br>
+        <input type="email" class="newAccInput" id="emailInput" name="email" placeholder="Enter E-mail Address" required>
+    <!-- pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"  -->
+        <br>
+        <label id="passwordLabel">PASSWORD</label><br>
+        <input type="password" class="newAccInput" id="passwordInput" name="password" placeholder="Enter Password" required>
+    <br>
+        <label id="initialDepositLabel">INITIAL DEPOSIT</label> <br>
+        <input type="number" class="newAccInput" id="initialDepositInput" name="initialDeposit" placeholder="Enter Initial Deposit" required>
+        
+    </form>
+    <button type="submit" id="createNewAcc" form="newAccForm">REGISTER</button>
+    <button type="button" id="displayAllUsersBtn">DISPLAY ALL USERS</button>
+    </div>
+</section>
+
+<section class="modals">
+    <div class="sideMenuModal">
+        <div class="sideMenuModalContents">
+            <h1 id="activeUserAccName">ACCOUNT NAME</h1>
+            <h5>Account Number</h5>
+            <input type="text" class="accNumInput" id="smmAccNumInput">
+            <button type="submit" id="accNumEnter">ENTER</button>
+            <h2 id="dashboard"><a href="index.html"> > DASHBOARD</a></h2>
+            
+            <h2 id="displayAllUsers"><a href="allusers.html"> > DISPLAY ALL USERS</a></h2>
+            
+            <h2 id="createNewAccSideMenu"><a href="newuser.html"> > CREATE A NEW ACCOUNT</a></h2>
+        </div>
+    </div>
+
+    <div class="displayAllUsersModal">
+        <div class="displayAllUsersModalContents">
+            <h2>USERS</h2>
+            <div class="userlistdiv"></div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+</body>
+<script src="app.js"></script>
+</html>
