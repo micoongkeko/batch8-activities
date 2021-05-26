@@ -1,0 +1,120 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: wheat;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.header {
+  font-size: 3rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  font-family: "Rubik", sans-serif;
+  z-index: 1;
+  background-color: rgba(0, 255, 255, 0.418);
+}
+
+.game--container {
+  width: 100vw;
+  height: 38vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell:empty {
+  background-color: wheat;
+}
+
+.cell {
+  width: 5rem;
+  height: 5rem;
+  border: 0.1rem solid black;
+  background-color: rgb(151, 151, 151);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bolder;
+  font-family: "Varela Round", sans-serif;
+  color: rgb(0, 126, 126);
+}
+
+.cell:hover {
+  background-color: rgb(150, 150, 150);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.game--restart {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  background-color: rgba(134, 134, 134, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.8rem;
+}
+
+.game--restart:hover {
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+  background-color: rgba(187, 81, 81, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+}
+
+.previous {
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgba(134, 134, 134, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.8rem;
+  margin: 0.3rem;
+}
+
+.previous:hover {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  background-color: rgba(187, 81, 81, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+}
+
+.next {
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  background-color: rgba(134, 134, 134, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.8rem;
+}
+
+.next:hover {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  background-color: rgba(187, 81, 81, 0.712);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+}
