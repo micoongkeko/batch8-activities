@@ -1,100 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Banking App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header>
-    <img src="images/menu_logo.png" id="menu_logo" class="dashBtn">
-    <img src="images/bank_logo.png" id="bank_logo" class="dashBtn">
-</header>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="images/menu_logo.png" id="menu_logo" class="dashBtn" />
+      <img src="images/bank_logo.png" id="bank_logo" class="dashBtn" />
+    </header>
 
-<section class="dashboard_container">
-    <h1 id="currentBalance">PHP XXX,XXX.XX</h1>
-    <div id="currentBalanceLabel">CURRENT BALANCE</div>
+    <section class="dashboard_container">
+      <h1 id="currentBalance">PHP XXX,XXX.XX</h1>
+      <div id="currentBalanceLabel">CURRENT BALANCE</div>
+    </section>
 
-</section>
+    <section class="dashboardButtons_container">
+      <div id="expense_div">
+        <h2>ADD EXPENSE</h2>
+        <img src="images/expense_logo.png" class="dashBtn" id="expenseBtn" />
+      </div>
+      <div id="deposit_div">
+        <h2>DEPOSIT</h2>
+        <img src="images/deposit_logo.png" class="dashBtn" id="depositBtn" />
+      </div>
+      <div id="withdraw_div">
+        <h2>WITHDRAW</h2>
+        <img src="images/withdraw_logo.png" class="dashBtn" id="withdrawBtn" />
+      </div>
+      <div id="transfer_div">
+        <h2>TRANSFER</h2>
+        <img src="images/transfer_logo.png" class="dashBtn" id="transferBtn" />
+      </div>
+    </section>
 
-<section class="dashboardButtons_container">
-
-    <div id="expense_div"><h2>ADD EXPENSE</h2><img src="images/expense_logo.png" class="dashBtn" id="expenseBtn"></div>
-    <div id="deposit_div"><h2>DEPOSIT</h2><img src="images/deposit_logo.png" class="dashBtn" id="depositBtn"></div>
-    <div id="withdraw_div"><h2>WITHDRAW</h2><img src="images/withdraw_logo.png" class="dashBtn" id="withdrawBtn"></div>
-    <div id="transfer_div"><h2>TRANSFER</h2><img src="images/transfer_logo.png" class="dashBtn" id="transferBtn"></div>
-
-</section>
-
-<section class="modals">
-    <div class="sideMenuModal">
+    <section class="modals">
+      <div class="sideMenuModal">
         <div class="sideMenuModalContents">
-            <h1 id="activeUserAccName">ACCOUNT NAME</h1>
-            <h5>Account Number</h5>
-            <input type="text" class="accNumInput" id="smmAccNumInput">
-            <button type="submit" id="accNumEnter">ENTER</button>
-            <h2 id="dashboard"><a href="index.html"> > DASHBOARD</a></h2>
-            <h2 id="displayAllUsers"><a href="allusers.html"> > DISPLAY ALL USERS</a></h2>
-            
-            <h2 id="createNewAccSideMenu"><a href="newuser.html"> > CREATE A NEW ACCOUNT</a></h2>
-        </div>
-    </div>
+          <h1 id="activeUserAccName">ACCOUNT NAME</h1>
+          <h5>Account Number</h5>
+          <input type="text" class="accNumInput" id="smmAccNumInput" />
+          <button type="submit" id="accNumEnter">ENTER</button>
+          <h2 id="dashboard"><a href="index.html"> > DASHBOARD</a></h2>
+          <h2 id="displayAllUsers">
+            <a href="allusers.html"> > DISPLAY ALL USERS</a>
+          </h2>
 
-    <div class="addExpenseModal">
+          <h2 id="createNewAccSideMenu">
+            <a href="newuser.html"> > CREATE A NEW ACCOUNT</a>
+          </h2>
+        </div>
+      </div>
+
+      <div class="addExpenseModal">
         <div class="addExpenseModalContents">
-            <h2>ADD EXPENSE</h2>
-            <form class="modalForm">
-                <label class="modalLabel" id="addExpenseItemLabel">ITEM DESCRIPTION</label>
-                <input type="text" id="addExpenseItemInput" class="modalInput" name="addExpenseItem" required>
-                <br>
-                <label class="modalLabel" id="addExpenseAmountLabel">AMOUNT</label>
-                <input type="number" id="addExpenseAmountInput" class="modalInput" name="addExpenseAmount" required>
-            </form>
-            <button class="modalBtn" id="addExpenseModalBtn">DEDUCT</button>
+          <h2>ADD EXPENSE</h2>
+          <form class="modalForm">
+            <label class="modalLabel" id="addExpenseItemLabel"
+              >ITEM DESCRIPTION</label
+            >
+            <input
+              type="text"
+              id="addExpenseItemInput"
+              class="modalInput"
+              name="addExpenseItem"
+              required
+            />
+            <br />
+            <label class="modalLabel" id="addExpenseAmountLabel">AMOUNT</label>
+            <input
+              type="number"
+              id="addExpenseAmountInput"
+              class="modalInput"
+              name="addExpenseAmount"
+              required
+            />
+          </form>
+          <button class="modalBtn" id="addExpenseModalBtn">DEDUCT</button>
         </div>
-    </div>
+      </div>
 
-    <div class="depositModal">
+      <div class="depositModal">
         <div class="depositModalContents">
-            <h2>DEPOSIT</h2>
-            <form class="modalForm">
-                <label class="modalLabel" id="depositAmountLabel">AMOUNT</label>
-                <input type="number" id="depositAmountInput" class="modalInput" name="depositAmount" required>
-            </form>
-            <button class="modalBtn" id="depositModalBtn">ADD FUNDS</button>
+          <h2>DEPOSIT</h2>
+          <form class="modalForm" id="depositForm" onsubmit="return false">
+            <label class="modalLabel" id="depositAmountLabel">AMOUNT</label>
+            <input
+              type="number"
+              id="depositAmountInput"
+              class="modalInput"
+              name="depositAmount"
+              required
+            />
+          </form>
+          <button
+            form="depositForm"
+            type="submit"
+            class="modalBtn"
+            id="depositModalBtn"
+          >
+            ADD FUNDS
+          </button>
         </div>
-    </div>
+      </div>
 
-    <div class="withdrawModal">
+      <div class="withdrawModal">
         <div class="withdrawModalContents">
-            <h2>WITHDRAW</h2>
-            <form class="modalForm">
-                <label class="modalLabel" id="withdrawAmountLabel">AMOUNT</label>
-                <input type="number" id="withdrawAmountInput" class="modalInput" name="depositAmount" required>
-            </form>
-            <button class="modalBtn" id="withdrawModalBtn">WITHDRAW</button>
+          <h2>WITHDRAW</h2>
+          <form class="modalForm">
+            <label class="modalLabel" id="withdrawAmountLabel">AMOUNT</label>
+            <input
+              type="number"
+              id="withdrawAmountInput"
+              class="modalInput"
+              name="depositAmount"
+              required
+            />
+          </form>
+          <button class="modalBtn" id="withdrawModalBtn">WITHDRAW</button>
         </div>
-    </div>
+      </div>
 
-<div class="transferModal">
-    <div class="transferModalContents">
-        <h2>SEND TO OTHER USER</h2>
-        <form class="modalForm">
-            <label class="modalLabel" id="recipientAccNumber">RECIPIENT ACC NUMBER</label>
-            <input type="number" id="recipientAccNumberInput" class="modalInput" name="recepientAccNum" required>
-            <br>
+      <div class="transferModal">
+        <div class="transferModalContents">
+          <h2>SEND TO OTHER USER</h2>
+          <form class="modalForm">
+            <label class="modalLabel" id="recipientAccNumber"
+              >RECIPIENT ACC NUMBER</label
+            >
+            <input
+              type="number"
+              id="recipientAccNumberInput"
+              class="modalInput"
+              name="recepientAccNum"
+              required
+            />
+            <br />
             <label class="modalLabel" id="recipientAmountLabel">AMOUNT</label>
-            <input type="number" id="recipientAmountInput" class="modalInput" name="recipientAmount" required>
-        </form>
-        <button class="modalBtn" id="transferModalBtn">TRANSFER</button>
-    </div>
-</div>
-
-</section>
-
-    
-</body>
-<script src="app.js"></script>
+            <input
+              type="number"
+              id="recipientAmountInput"
+              class="modalInput"
+              name="recipientAmount"
+              required
+            />
+          </form>
+          <button class="modalBtn" id="transferModalBtn">TRANSFER</button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="app.js"></script>
 </html>
