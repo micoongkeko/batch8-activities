@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="media/bab_logo_full_white.png" id="logoBtn" ">
+        <h1 id="ourApi" onclick="window.location.href='index.html#landingBodyApi'">our api</h1>
+        <div id="createSb">
+            <h1 id="createSbLabel">
+                create a storyboard
+            </h1>
+        <div class="createSbModal">
+            <p>how many frames would you like?</p>
+            <form id="createSbFrameInputForm" onsubmit="return false">
+                <input type="number" id="createSbFrameInput" min="1" max="24">
+                <button id="createSbBtn" form="createSbFrameInputForm">create</button>
+            </form>
+        </div>
+        </div>
+    </header>
+<section class="landing">
+    <div id="landingBody">
+        <div id="landingBodyTrans">
+            <div id="landingBodyContents">
+                <img id="landingPhotoTwo" src="media/landingPhotoTwo.jpg">
+                <img id="landingPhotoOne" src="media/landingPhotoOne.jpg">
+                <h2 id="landingBodyDesc">
+                <mark>
+                    Build-a-board makes it easier for both aspiring and professional filmmakers
+                    to create effective storyboards.
+                </mark>
+                </h2>
+            </div>
+        </div>n
+    </div>
+    <div id="landingBodyApi">
+        <div id="landingBodyApiDesc">
+            <h2>
+            With the help of Unsplash's API, we are able to access a ton of high quality 
+            images for free, making your storyboards more professional at no additional cost.
+            </h2>
+        </div>
+        <img id="unsplashApiPic" src="media/unsplashapipic.jpg">
+    </div>
+</section>
+<section class="storyboard" id="storyboard">
+    <div class="storyboardHalf" id="storyboardSearch">
+        <form id="imageSearch" onsubmit="return false">
+            <input id="imageSearchInput" autocomplete="off">
+            <button id="imageSearchBtn" form="imageSearch">search</button>
+            <button id="imageSearchReset">x</button>
+        </form>
+        <div id="imageSearchResults">
+            
+        </div>
+    </div>
+    <div class="storyboardSheetContainer">
+        <div class="storyboardHalf" id="storyboardSheet">
+            <!-- <div class="storyboardObject">
+                <div class="storyboardPhoto">
+
+                </div>
+                <div class="storyboardDesc">
+                    
+                </div>
+            </div> -->
+        </div>
+        <div class="storyboardSheetBtnRow">
+            <button class="storyboardSheetBtns" id="addFramesBtn">add frames</button>
+            <!-- <button class="storyboardSheetBtns" id="deleteFramesBtn">delete frames</button> -->
+            <button class="storyboardSheetBtns" id="restartStoryboard">reset board</button>
+        </div>
+        <div class="addFramesModal">
+            <div id="addFramesModalContainer">
+                <p>how many additional frames would you like?</p>
+                <form id="addFrameForm" onsubmit="return false">
+                <input type="number" id="addFrameInputForm" min="1" max="24">
+                <button id="confirmAddFramesBtn" form="addFrameInputForm">add</button>
+            
+                </form>
+            </div>
+        </div>
+        <!-- <div class="deleteFramesModal">
+            <div id="deleteFramesModalContainer">
+                <p>which frame would you like to delete?</p>
+                <form id="deleteFrameForm" onsubmit="return false">
+                <input type="number" id="deleteFrameInputForm" min="1">
+                <button id="confirmDeleteFramesBtn" form="deleteFrameInputForm">delete</button>
+                </form>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+</body>
+<script src="app.js">
+</script>
+</html>
