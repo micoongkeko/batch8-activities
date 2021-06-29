@@ -10,4 +10,8 @@ arr.each do |num|
     end
 end
 
-puts "[#{positive}, #{negative}]"
+if arr == []
+    puts "[]"
+else 
+    puts "[#{positive}, #{negative}]"
+end
