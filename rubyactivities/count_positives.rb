@@ -4,7 +4,7 @@ negative = 0
 
 arr.each do |num|
     if num > 0
-        positive += num
+        positive += 1
     elsif num < 0
         negative += num
     end
