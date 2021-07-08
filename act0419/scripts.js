@@ -7,33 +7,7 @@ setInterval(function() {
     clock.innerHTML = date.toLocaleTimeString().slice(0,-6);
 })
 
-
-
 ////////////////////  TO DO LIST  ////////////////////
-
-
-
-// document.getElementById("newToDo").value = "hello"
-
-// let addToDoButton = document.getElementById('addToDo');
-// let todolist = document.getElementById('todolist');
-// let inputField = document.getElementById('newToDo');
-
-// addToDoButton.addEventListener('click',function(){
-//     var paragraph = document.createElement('p')
-//     paragraph.innerText = inputField.nodeValue;
-//     todolist.appendChild(paragraph);
-
-// })
-
-
-// var todolist = document.getElementsByClassName('todolist');
-// var newToDo = document.getElementById('newToDo');
-
-// addToDo.addEventListener('click', function(){
-//     let addedTask = newToDo;
-//     todolist.appendChild(addedTask);
-// })
 
 let addToDoButton = document.getElementById('addToDo');
 let toDoContainer = document.getElementById('todolist');
@@ -54,6 +28,7 @@ addToDoButton.addEventListener('click', function todo(){
 })
 
 ////////////////////  RANDOM QUOTE FOOTER  ////////////////////
+
 let quoterefreshbtn = document.getElementById('quoterefreshbtn');
 let output = document.getElementById('footercontent');
 let quotes = [
@@ -63,7 +38,7 @@ let quotes = [
     "Whether You Think You Can Or Think You Can’t, You’re Right. – Henry Ford",
 ]
 
-
+// BUTTON TO REFRESH QUOTE 
 quoterefreshbtn.addEventListener('click',function(){
     var randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
     output.innerHTML = randomQuote;
@@ -73,6 +48,7 @@ quoterefreshbtn.addEventListener('click',function(){
 
 ////////////////////  ADD QUOTE  ////////////////////
 
+// MODAL POP UP TO ADD QUOTE
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("quoteaddbtn");
 var span = document.getElementsByClassName("close")[0];
@@ -90,6 +66,7 @@ window.onclick = function(event) {
   }
 }
 
+// INPUT TO ADD QUOTE ON MODAL
 function addtoquotes () {
 //   let quotes = [
 //     "Just Do It - Nike",

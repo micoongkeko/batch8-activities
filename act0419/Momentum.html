@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/jpg" href="momentumlogo.png.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"" rel="stylesheet">
     <title>Mico's Momentum Page</title>
 </head>
@@ -18,19 +19,22 @@
     <h1 id="clock"></h1>
     <br>
     <h2>
-        Hello, <input type="text" id="name" autocomplete="off">!
+        Hello, <input type="text" id="name" autocomplete="off" onkeypress="this.style.width = 
+        ((this.value.length + 2) * 1.2) + 'rem';">!
     </h2>
     <br>
     <h3>
         Today's focus will be on
         <br>
-        <input type="text" id="mainfocus" autocomplete="off">.
+        <input type="text" id="mainfocus" autocomplete="off" onkeypress="this.style.width = 
+        ((this.value.length + 0.5) * 0.6) + 'rem';">.
     </h3>
     <div class="container">
     <h4>
         I also need to
         <br>
-        <input type="text" id="newToDo" autocomplete="off"><button id="addToDo">+</button>
+        <input type="text" id="newToDo" autocomplete="off" onkeypress="this.style.width = 
+        ((this.value.length + 0.2) * 0.4) + 'rem';"><button id="addToDo">+</button>
     </h4>
     <br>
   
@@ -44,7 +48,6 @@
 
 <div id="myModal" class="modal">
 
-    <!-- Modal content -->
     <div class="modal-content">
      
       <input type="text" id="newquote" placeholder="Type new quote here." autocomplete="off"><button id="confirmnewq" onclick="addtoquotes()">Add Quote</button>
