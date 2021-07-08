@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="function Question()"></button> -->
+</body>
+<script>
+
+    // let Q1 = "What is 2x2?";
+    // let Q2 = "What is 3x3?";
+    // let Q3 = "What is 4x4?";
+
+    // let questions = [Q1, Q2, Q3]
+    // function Question(){
+    //     console.log(Q1)
+    // }
+
+    // // asdadasd
+
+    // function Question(question, answers, correctans){
+
+        function Question(q, choices, answer) {
+    this.question = q;
+    this.choices = choices;
+    this.correctAnswer = answer;
+}
+
+Question.prototype.displayQuestion = function() {
+    console.log(this.question);
+
+    for (var i = 0; i < this.answers.length; i++) {
+        console.log(i + ':' + this.answers[i]);
+    }
+
+}
+
+Question.prototype.checkAnswer = function(ans) {
+        if (ans == this.correct) {
+            console.log('Correct answer!');
+        } else {
+            console.log('Wrong answer. Try again :)');
+        }
+    }
+
+    let q1 = new Question("What is 2x2?", ["3", "4", "5"], 2);
+    let q2 = new Question("What is 5x5?", ["24", "25", "26"], 2);
+    let q3 = new Question("What is 10x10?", ["80", "100", "120"], 2);
+
+
+    var questions = [q1, q2, q3];
+    
+    var n = Math.floor(Math.random() * questions.length);
+    
+    questions[n].displayQuestion();
+    
+    var answer = parseInt(prompt('Please select the correct answer.'));
+    
+    questions[n].checkAnswer(answer);
+    
+</script>
+</html>
