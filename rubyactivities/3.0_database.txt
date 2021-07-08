@@ -16,6 +16,15 @@ VALUES
 (5, 'Zack', 'Blank', 'Matthews', 22, 'Marikina'),
 (6, 'Finn', 'Blank', 'Lam', 25, 'Manila');
 
+UPDATE students 
+SET 
+first_name = 'Ivan',
+middle_name = 'Ingram',
+last_name = 'Howard',
+age = '25',
+location = 'Bulacan'
+WHERE id = '1';
+
 DELETE FROM students where id = 6;
 
 SELECT * FROM students;
