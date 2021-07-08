@@ -49,9 +49,7 @@
             <input type="text" class="accNumInput" id="smmAccNumInput">
             <button type="submit" id="accNumEnter">ENTER</button>
             <h2 id="dashboard"><a href="index.html"> > DASHBOARD</a></h2>
-            
-            <h2 id="displayAllUsers"><a href="allusers.html"> > DISPLAY ALL USERS</a></h2>
-            
+            <h2 id="displayExpenses" onclick="popUpExpensesModal()"><a>> VIEW EXPENSES</a></h2>    
             <h2 id="createNewAccSideMenu"><a href="newuser.html"> > CREATE A NEW ACCOUNT</a></h2>
         </div>
     </div>
@@ -60,6 +58,13 @@
         <div class="displayAllUsersModalContents">
             <h2>USERS</h2>
             <div class="userlistdiv"></div>
+        </div>
+    </div>
+
+    <div class="displayExpensesModal">
+        <div class="displayExpensesModalContents">
+            <h2>EXPENSES</h2>
+            <div class="expensesdiv"></div>
         </div>
     </div>
 </section>

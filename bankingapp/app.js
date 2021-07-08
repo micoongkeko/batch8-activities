@@ -14,60 +14,112 @@ let withdrawModal = document.querySelector('.withdrawModal');
 let withdrawAmountInput;
 let transferModal = document.querySelector('.transferModal');
 let recipientAmountInput;
+let addExpenseForm = document.getElementById('addExpenseForm');
+let addExpenseItemInput;
+let addExpenseAmountInput;
 let depositForm = document.getElementById('depositForm');
 let withdrawForm = document.getElementById('withdrawForm');
 let transferForm = document.getElementById('transferForm');
 let recipientUserKey;
 let recipientUser;
+let displayExpensesModal = document.querySelector('.displayExpensesModal');
 
 // Create New Account Page
 let displayAllUsersBtn = document.querySelector('#displayAllUsersBtn');
 let displayAllUsersModal = document.querySelector('.displayAllUsersModal');
 let newAccForm = document.getElementById('newAccForm');
 let userStorage = [];
+let users;
+
+function getUsers() {
+    if(JSON.parse(window.localStorage.getItem("users"))) {
+        users = JSON.parse(window.localStorage.getItem("users"));
+        for(i=0; i < users.length; i++) {
+            userStorage.push(users[i].name)
+        }
+    } else {
+        users = [];
+    }
+}
+
+getUsers();
 
 // Side Menu Page
 let accNumEnterBtn = document.getElementById('accNumEnter');
 let getActiveUserLabel = document.getElementById('activeUserAccName');
 let createNewAccSideMenu = document.querySelector('#createNewAccSideMenu');
+let displayExpenses = document.getElementById('displayExpenses');
 let activeUserKey; // to be declared in accNum event listener
-let activeUser; // to be declared in accNum event listener
+let activeUserStorage; // to be declared in accNum event listener
+let activeUser;
+let activeUserArrNum;
 
 /////////////////////   SETTING ACTIVE USER  /////////////////////
 // Sets activeUser, changes balance on dashboard and name on sidemenu
 accNumEnterBtn.addEventListener('click', function() {
-    activeUserKey = document.getElementById('smmAccNumInput').value; // Gets current accountnum from live input
-    activeUser = JSON.parse(window.localStorage.getItem(activeUserKey)); // Match user key to local storage
-        if (activeUserKey in localStorage) { // Checks if user key exists in local storage
-            alert(`You are now using ${activeUser.name}'s account. Any transaction made will reflect under this name.`);
+    activeUserKey = parseFloat(document.getElementById('smmAccNumInput').value); // Gets current accountnum from live input
+    activeUserStorage = JSON.parse(window.localStorage.getItem("users")); // Match user key to local storage
+    for (i=0; i<activeUserStorage.length; i++) {
+        
+        if (activeUserStorage[i].accountNumber == activeUserKey) {
+            activeUser = activeUserStorage[i];
             getActiveUserLabel.innerHTML = activeUser.name;
-            if(currentBalance) { // Checks for presence of current balance since js is linked to 2 diff html files
-                currentBalance.innerHTML = "PHP " + activeUser.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-                }
-            }   else {
-                alert("Please enter an existing account number.") 
+            currentBalance.innerHTML = "PHP " + activeUser.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            activeUserArrNum = activeUserStorage.findIndex(user => user == activeUser)
+            console.log("index of active user is " + activeUserArrNum)
+            alert(`You are now using ${activeUser.name}`)
         }
-    })
+    }
+    if (activeUser == undefined) {
+        alert("Please enter a valid account number.")
+    }      
+})
 
 /////////////////////   MODALS  /////////////////////
 ////////// SIDE MENU MODAL
 sideMenuBtn.addEventListener('click',function(){
     sideMenuModal.classList.add('openSideMenuModal') // Opens side menu modal on click of deposit button
 })
-createNewAccSideMenu.addEventListener('click', function() {
-    window.open(newuser.html); // Opens newuser.html when clicked from sidemenumodal
-})
+// createNewAccSideMenu.addEventListener('click', function() {
+//     window.open(newuser.html); // Opens newuser.html when clicked from sidemenumodal
+// })
+////////// EXPENSES LIST MODAL
+function popUpExpensesModal(){
+    if(activeUser == undefined) {
+        alert("Please enter a valid account number on the side menu before viewing your expenses.")
+    } else {
+        displayExpensesModal.classList.add('opendisplayExpensesModal');
+        let activeUserExpenses = users[activeUserArrNum].expenseItems
+        console.log(activeUserExpenses);
+    }
+}
+
 //////// ADD EXPENSE MODAL
-// let addExpenseItemInput = document.querySelector('#addExpenseItemInput').value;
 if(addExpenseModal) {
     expenseBtn.addEventListener('click',function(){
     if(activeUser == undefined) { // Checks activeUser
-        alert("Please enter a valid account number before trying a transaction!")
+        alert("Please enter a valid account number on the side menu before trying a transaction!")
     } else {
         addExpenseModal.classList.add('openAddExpenseModal') // Opens deposit modal on click of deposit button
         }      
     })
 };
+
+if(addExpenseForm) {
+    addExpenseForm.addEventListener('submit', function(e){
+        addExpenseItemInput = document.getElementById('addExpenseItemInput').value;
+        addExpenseAmountInput = document.getElementById('addExpenseAmountInput').value;
+        users[activeUserArrNum].balance = parseInt(users[activeUserArrNum].balance) - parseInt(addExpenseAmountInput);
+        currentBalance.innerHTML = "PHP " + users[activeUserArrNum].balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        users[activeUserArrNum].expenseItems.push(new ExpenseItem(addExpenseItemInput,parseInt(addExpenseAmountInput), activeUserKey))
+        localStorage.setItem("users", JSON.stringify(users));
+        alert(`Successfuly spent PHP ${addExpenseAmountInput}`);
+        addExpenseModal.classList.remove('openAddExpenseModal');
+        addExpenseForm.reset();
+        e.preventDefault();
+    }
+)}
+
 ////////// DEPOSIT MODAL
 if(depositModal) { // Checks for existence of depositModal (true in index.html, false in newuser.html)
     depositBts.addEventListener('click',function(){
@@ -82,9 +134,9 @@ if(depositModal) { // Checks for existence of depositModal (true in index.html, 
 if(depositForm) {
     depositForm.addEventListener('submit', function(e){
         depositAmountInput = document.getElementById('depositAmountInput').value;
-        activeUser.balance = parseInt(activeUser.balance) + parseInt(depositAmountInput);
-        currentBalance.innerHTML = "PHP " + activeUser.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-        localStorage.setItem(activeUserKey, JSON.stringify(activeUser));
+        users[activeUserArrNum].balance = parseInt(users[activeUserArrNum].balance) + parseInt(depositAmountInput);
+        currentBalance.innerHTML = "PHP " + users[activeUserArrNum].balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        localStorage.setItem("users", JSON.stringify(users));
         alert(`Successfuly deposited PHP ${depositAmountInput}`);
         depositModal.classList.remove('openDepositModal');
         depositForm.reset();
@@ -102,7 +154,7 @@ function checkAccountBalance(activeUser) {
 if(withdrawModal) {    
     withdrawBtn.addEventListener('click',function(){
         if(activeUser == undefined) { // Checks activeUser
-            alert("Please enter a valid account number before trying a transaction!")
+            alert("Please enter a valid account number on the side menu before trying a transaction!")
         } else {
             withdrawModal.classList.add('openWithdrawModal');   
         }
@@ -112,10 +164,9 @@ if(withdrawModal) {
 if(withdrawForm) {
     withdrawForm.addEventListener('submit', function(e){
         withdrawAmountInput = document.getElementById('withdrawAmountInput').value;
-        activeUser.balance = parseInt(activeUser.balance) - parseInt(withdrawAmountInput);
-        currentBalance = document.getElementById('currentBalance');
-        currentBalance.innerHTML = "PHP " + activeUser.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-        localStorage.setItem(activeUserKey, JSON.stringify(activeUser));
+        users[activeUserArrNum].balance = parseInt(users[activeUserArrNum].balance) - parseInt(withdrawAmountInput);
+        currentBalance.innerHTML = "PHP " + users[activeUserArrNum].balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        localStorage.setItem("users", JSON.stringify(users));
         alert(`Successfuly withdrew PHP ${withdrawAmountInput}`);
         withdrawModal.classList.remove('openWithdrawModal');
         withdrawForm.reset();
@@ -128,7 +179,7 @@ if(withdrawForm) {
 if(transferModal) {
     transferBtn.addEventListener('click',function(){
         if(activeUser == undefined) {
-            alert("Please enter a valid account number before trying a transaction!")
+            alert("Please enter a valid account number on the side menu before trying a transaction!")
         } else {
             transferModal.classList.add('openTransferModal')
         }
@@ -138,21 +189,30 @@ if(transferModal) {
 if(transferForm) {
     transferForm.addEventListener('submit', function(e){
         recipientUserKey = document.getElementById('recipientAccNumberInput').value;
-        recipientUser = JSON.parse(window.localStorage.getItem(recipientUserKey));
+        // recipientUser = JSON.parse(window.localStorage.getItem(parseInt(recipientUserKey)));
+        for (i=0; i<users.length; i++) {
+            if (users[i].accountNumber == recipientUserKey) {
+                recipientUser = users[i];
+            }
+        }
         recipientAmountInput = document.getElementById('recipientAmountInput').value;
-        if (recipientUser && (recipientUserKey != activeUserKey)) {
-            activeUser.balance = parseInt(activeUser.balance) - parseInt(recipientAmountInput);
-            recipientUser.balance = parseInt(recipientUser.balance) + parseInt(recipientAmountInput);
-            currentBalance.innerHTML = "PHP " + activeUser.balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            // UPDATE values of local storage items
-            localStorage.setItem(activeUserKey, JSON.stringify(activeUser));
-            localStorage.setItem(recipientUserKey, JSON.stringify(recipientUser));
+        let recipientUserArrNum = users.findIndex(user => user == recipientUser)
+        console.log(recipientUserKey)
+        console.log(recipientUserArrNum);
+        console.log(recipientUser)
+        if ((recipientUser != undefined) && (recipientUserKey != activeUserKey)) {
+            users[activeUserArrNum].balance = parseInt(users[activeUserArrNum].balance) - parseInt(recipientAmountInput);
+            currentBalance.innerHTML = "PHP " + users[activeUserArrNum].balance.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            users[recipientUserArrNum].balance = parseInt(users[recipientUserArrNum].balance) + parseInt(recipientAmountInput);
+            localStorage.setItem("users", JSON.stringify(users)); // UPDATE values of local storage items           
             alert(`Successfuly transferred PHP ${recipientAmountInput} to ${recipientUser.name}`);
             transferModal.classList.remove('openTransferModal');
             transferForm.reset();
             e.preventDefault();
+            recipientUser = undefined;
         } else {
             alert("Please enter a valid recipient account number.")
+            transferForm.reset();
         }
     })
 }
@@ -162,14 +222,12 @@ if(transferForm) {
 if(displayAllUsersModal) {    
     displayAllUsersBtn.addEventListener('click',function(){
         displayAllUsersModal.classList.add('opendisplayAllUsersModal')
-        for (var i = 0; i < localStorage.length; i++){
-            let userKey = localStorage.key(i);
-            let userfromstorage = JSON.parse(localStorage.getItem(userKey));
-            let userlist = document.createElement("p");
-            userlist.innerHTML = "#" + userKey + " - "  + userfromstorage.name;
-            let userlistdiv = document.querySelector('.userlistdiv');
-            userlistdiv.appendChild(userlist)
-            // console.log(userfromstorage.name);
+        for (i=0; i<users.length; i++) {
+                let userfromstorage = users[i];
+                let userlist = document.createElement("p");
+                userlist.innerHTML = "#" + userfromstorage.accountNumber + " - "  + userfromstorage.name;
+                let userlistdiv = document.querySelector('.userlistdiv');
+                userlistdiv.appendChild(userlist)
         }
     })
 };
@@ -191,6 +249,9 @@ window.addEventListener("click", function(event){
     if (event.target == transferModal) {
         transferModal.classList.remove('openTransferModal')
     } 
+    if (event.target == displayExpensesModal) {
+        displayExpensesModal.classList.remove('opendisplayExpensesModal')
+    } 
     if (event.target == displayAllUsersModal) {
         displayAllUsersModal.classList.remove('opendisplayAllUsersModal');
         document.querySelector('.userlistdiv').innerHTML = "";
@@ -201,30 +262,13 @@ window.addEventListener("click", function(event){
 /////////////////////   NEWUSER.HTML /////////////////////
 
 class User {
-    constructor (name, email, password, balance, accountNumber) {
+    constructor (name, email, password, balance, accountNumber, expenseItems) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.balance = balance;
         this.accountNumber = accountNumber;
-    }
-}
-
-function addToUserStorage() {
-    for (var i = 0; i < localStorage.length; i++){
-        let userKey = localStorage.key(i);
-        let userKeyObject = JSON.parse(window.localStorage.getItem(userKey))
-        // console.log(userKey)
-        // console.log(JSON.parse(window.localStorage.getItem(userKey)))
-        if (userStorage.includes(userKeyObject.name)) {
-            // console.log("already exists")
-        } else {
-            userStorage.push(userKeyObject.name)
-            // const newUser = new User(nameInput, emailInput, passwordInput, initialDeposit, accountNumber);                    alert(`${nameInput} has successfuly created an account with an initial deposit of ${initialDeposit}! Your account number is ${accountNumber}, please take note of this as you will need this to transact later on.`);
-            // localStorage.setItem(`${accountNumber}`, JSON.stringify(newUser));
-            // userStorage.push(nameInput);
-            // console.log(newUser);
-        }
+        this.expenseItems = expenseItems;
     }
 }
 
@@ -235,26 +279,31 @@ if (newAccForm) {
         let emailInput = document.getElementById('emailInput').value;
         let passwordInput = document.getElementById('passwordInput').value;
         let initialDeposit = parseInt(document.getElementById('initialDepositInput').value);
-        let accountNumber = Math.floor(Math.random()*1000)
-        addToUserStorage();
+        let accountNumber = Math.floor(Math.random()*1000);
+        let expenseItems = [];
+        // addToUserStorage();
         if (userStorage.includes(nameInput)) {
             alert("An account with the same name has already been created. Please create a new account or log in to your existing one from the side menu.");
             newAccForm.reset();
         } else {
-            const newUser = new User(nameInput, emailInput, passwordInput, initialDeposit, accountNumber);
+            users.push(new User(nameInput, emailInput, passwordInput, initialDeposit, accountNumber, expenseItems));
             alert(`${nameInput} has successfuly created an account with an initial deposit of ${initialDeposit}! Your account number is ${accountNumber}, please take note of this as you will need this to transact later on.`);
-            localStorage.setItem(`${accountNumber}`, JSON.stringify(newUser));
+            localStorage.setItem("users", JSON.stringify(users));
             userStorage.push(nameInput);
-            console.log(newUser);
+            newAccForm.reset();
+            // localStorage.setItem("users",userStorage)
         }
         console.log("Current existing users on the platform are: " + userStorage);
     })
 };
 
-
-
-
-
+class ExpenseItem {
+    constructor (itemLabel, itemCost, owner) {
+        this.itemLabel = itemLabel;
+        this.itemCost = itemCost;
+        this.owner = owner;
+    }
+}
 
 ///////////////////////////////////OLD CODE (BACK UP CODE)
 /////////////////////   CURRENT USER  /////////////////////
