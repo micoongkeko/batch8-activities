@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  text-align: left;
+  position: relative;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 6vh;
+  margin-bottom: 5vh;
+  margin-left: 2vh;
+}
+
+body {
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+.chessboard {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(8, 8vh);
+  grid-template-rows: repeat(8, 8vh);
+  grid-gap: 0;
+  height: 64vh;
+  width: 64vh;
+  border: 1vh solid burlywood;
+}
+
+img {
+  max-width: 60%;
+  max-height: 60%;
+  display: flex;
+  flex: 1;
+  object-fit: cover;
+  cursor: pointer;
+  transform-origin: 50% 65%;
+  transition: transform 0.5s, filter 0.5s ease-in;
+  filter: brightness(150%);
+}
+
+img:hover {
+  filter: brightness(100%);
+  transform: scale(1.5);
+}
+
+.white-box {
+  background-color: cornsilk;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.black-box {
+  background-color: darkgray;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.white-box:hover {
+  background-color: cadetblue;
+}
+
+.black-box:hover {
+  background-color: cadetblue;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6vh;
+  background-color: darkslategrey;
+  color: white;
+  font-size: 3vh;
+  font-family: "JetBrains Mono", monospace;
+  display: flex;
+  text-align: right;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+a:link {
+  color: wheat;
+}
+
+a:visited {
+  color: gray;
+}
+
+a:hover {
+  color: lightgreen;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100vw;
+  height: 100vw;
+  background-color: #dcdfd7;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  overflow: hidden;
+}
+
+
+/* 
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: coral;
+}
+
+.swipe-in-text {
+  position: relative;
+
+
+&:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  width: 100%
+  bottom: 0;
+  z-index: 1;
+  background-color: #FF5858;
+}
